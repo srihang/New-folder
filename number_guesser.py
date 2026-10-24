@@ -1,3 +1,8 @@
+#This is a number guesser game that will generate a random number from 1-100.
+#Then the user will have a chance to try and guess ther number.
+#If the user guessing to low or high the system will tell that and the user will have 7 guesses to try and get it right.
+
+
 import random
 
 MAX_attempts = 7
@@ -47,4 +52,3 @@ def play_game():
 
 if __name__ == "__main__":
     play_game()
-    
