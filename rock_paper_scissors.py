@@ -3,11 +3,37 @@
 #If both of you choose the same option it will end up being a draw
 #The computer choice is randomly generated
 #Then ur choice and the computers choice are compared and a winner is decided
-#To play again you can just find 
+#To play again you can just input "y"
 
 import random 
 
-print("Welcome to Rock Paper Scissors!\n")and 
+print("Welcome to Rock Paper Scissors!\n")
+ascii_art = {
+    "Rock": """
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+""",
+    "Paper": """
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+""",
+    "Scissors": """
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""
+}
 
 choices = ["Rock", "Paper", "Scissors"]
 
@@ -15,15 +41,21 @@ while True:
     print("Choose an option")
     print("1 - Rock")
     print("2 - Paper")
-    print("3 - Scissors")
+    print("3 - Scissors") 
 
-    user_input = int(input("Enter your choice (1-3): "))
-    user_choice = choices[user_input - 1]
+    user_input = input("Enter your choice (1-3): ").strip()
+    
+    if user_input not in ["1", "2", "3"]:
+        print("Invalid choice! Please enter 1, 2, or 3.\n")
+        continue
 
+    user_choice = choices[int(user_input) - 1]
     computer_choice = random.choice(choices)
 
     print(f"\nYou chose: {user_choice}")
+    print(ascii_art[user_choice])
     print(f"Computer chose: {computer_choice}") 
+    print(ascii_art[computer_choice])
 
     if user_choice == computer_choice:
         print("It is a tie. Play again!")
@@ -40,5 +72,4 @@ while True:
     if play_again != "y":
         break
     
-    print()
-    
+    print() 
